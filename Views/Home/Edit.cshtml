@@ -1,0 +1,33 @@
+﻿@model ToDoList.Models.Task
+@{
+    ViewData["Title"] = "Edit To Do List";
+}
+
+
+<form method="post" class="border p-3 mt-4" asp-controller="Home" asp-action="Update">
+    <div>
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit To Do List</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        
+        <div class="mb-3">
+            <label asp-for="task"></label>
+            <input class="form-control" asp-for="task"/>
+            <span asp-validation-for="task" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="dueDate"></label>
+             <input type="date" asp-for="dueDate" class="form-control" />
+        </div>
+        <div class="mb-3">
+             <input hidden asp-for="Id" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Update To Do </button>
+        <a asp-controller="" asp-action="" class="btn btn-secondary" style="width:150px">
+            Back To List
+        </a>
+        
+    </div>
+</form>

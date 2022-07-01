@@ -1,0 +1,33 @@
+﻿@model ToDoList.Models.Task
+@{
+    ViewData["Title"] = "Delete Task";
+}
+
+
+<form method="post" class="border p-3 mt-4" asp-controller="Home" asp-action="DeleteById">
+    <div>
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit To Do List</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        
+        <div class="mb-3">
+            <label asp-for="task"></label>
+            <input class="form-control" asp-for="task" disabled/>
+            <span asp-validation-for="task" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="dueDate"></label>
+             <input type="date" asp-for="dueDate" class="form-control" disabled/>
+        </div>
+        <div class="mb-3">
+             <input hidden asp-for="Id" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back To List
+        </a>
+        
+    </div>
+</form>

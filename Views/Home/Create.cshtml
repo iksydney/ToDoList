@@ -1,0 +1,32 @@
+﻿@model ToDoList.Models.Task
+@{
+    ViewData["Title"] = "Create To Do List";
+}
+
+
+
+
+<form method="post" class="border p-3 mt-4" asp-controller="Home" asp-action="CreateTask">
+    <div>
+        <div class="row pb-2">
+            <h2 class="text-primary">Create To Do List</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="task"></label>
+            <input asp-for="task" class="form-control" />
+            <span asp-validation-for="task" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="dueDate"></label>
+             <input asp-for="dueDate" type="date" class="form-control" />
+             <span asp-validation-for="dueDate"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create To Do </button>
+        <a asp-controller="Home"  class="btn btn-secondary" style="width:150px">
+            Back To List
+        </a>
+    </div>
+    <partial name="_ValidationScriptsPartial"/>
+</form>
